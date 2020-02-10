@@ -16,6 +16,11 @@ rule token = parse
   | [' ' '\t'] { token lexbuf }
   | eof { EOF }
   | '+' { PLUS }
+  | '-' { MINUS }
+  | "==" { EQUALS }
+  | "!=" { NOTEQUALS }
+  | "&&" { AND }
+  | "||" { OR }
   | '(' { LPAREN }
   | ')' { RPAREN }
   | '{' { LBRACE }

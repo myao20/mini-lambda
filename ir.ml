@@ -31,6 +31,16 @@ type inst
   | Closure of int * int
   (* Pops two values and pushes their sum. *)
   | Add
+  (* Pops two values and pushes their difference *)
+  | Subtract
+  (* Pops two values and pushes if they are equal *)
+  | Equals
+  (* Pops two values and pushes if they are not equal *)
+  | NotEquals
+  (* Pops two values and pushes their logical AND *)
+  | And
+  (* Pops two values and pushes their logical OR *)
+  | Or
   (* Pops a closure and invokes it. *)
   | Call
   (* Pops a return value and returns. *)
@@ -60,6 +70,11 @@ let print_inst out inst =
   | ConstInt i    -> Printf.fprintf out "\tConstInt(%d)\n" i
   | Closure(i, n) -> Printf.fprintf out "\tClosure(%d, %d)\n" i n
   | Add           -> Printf.fprintf out "\tAdd\n"
+  | Subtract      -> Printf.fprintf out "\tSubtract\n"
+  | Equals        -> Printf.fprintf out "\tEquals\n"
+  | NotEquals     -> Printf.fprintf out "\tNotEquals\n"
+  | And           -> Printf.fprintf out "\tAnd\n"
+  | Or            -> Printf.fprintf out "\tOr\n"
   | Call          -> Printf.fprintf out "\tInvoke\n"
   | Return        -> Printf.fprintf out "\tReturn\n"
   | Pop           -> Printf.fprintf out "\tPop\n"

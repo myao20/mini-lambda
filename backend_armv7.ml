@@ -78,6 +78,8 @@ let compile_closure out { id; num_params; num_locals; name; insts; _ } =
       Printf.fprintf out "\tmov pc, lr\n"
     | Pop ->
       Printf.fprintf out "\tpop {r1}\n"
+	| _ ->
+	  failwith("unused")
     ) insts;
 
   Printf.fprintf out "\t.data\n";
